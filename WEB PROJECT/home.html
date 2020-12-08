@@ -75,28 +75,28 @@
 
         <!-- Page Content  -->
         <div id="content">
+          <nav class="navbar navbar-expand-lg navbar-light bg-light">
+              <div class="container-fluid">
 
-            <nav class="navbar navbar-expand-lg navbar-light bg-light">
-                <div class="container-fluid">
+                  <button type="button" id="sidebarCollapse" class="btn btn-info">
+                      <i class="fas fa-align-left"></i>
+                      <span>Toggle Sidebar</span>
+                  </button>
+                  <button class="btn btn-dark d-inline-block d-lg-none ml-auto" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                      <i class="fas fa-align-justify"></i>
+                  </button>
 
-                    <button type="button" id="sidebarCollapse" class="btn btn-info">
-                        <i class="fas fa-align-left"></i>
-                        <span>Toggle Sidebar</span>
-                    </button>
-                    <button class="btn btn-dark d-inline-block d-lg-none ml-auto" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                        <i class="fas fa-align-justify"></i>
-                    </button>
+                  <div class="collapse navbar-collapse" id="navbarSupportedContent">
 
-                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-
-                    </div>
-                </div>
+                  </div>
+              </div>
+          </nav>
             </nav>
 
             <h3>The Coastal Taste </h2>
           </br>
           <div class="shopfront">
-            <img src="shopfront.png" alt="shopfront" style="width:800px;height:400px;"class="shadow p-3 mb-5 bg-white rounded" class="img-thumbnail" >
+            <img src="images/shopfront.png" alt="shopfront" style="width:800px;height:400px;"class="shadow p-3 mb-5 bg-white rounded" class="img-thumbnail" >
 
           </div>
           </br>
@@ -107,8 +107,8 @@
           </br>
 
         </br>
-        <div class="image">
-          <img src="pasta.png" alt="pasta" style="width:800px;height:400px;"class="shadow p-3 mb-5 bg-white rounded" class="img-thumbnail",>
+        <div class="images">
+          <img src="images/pasta.png" alt="pasta" style="width:800px;height:400px;"class="shadow p-3 mb-5 bg-white rounded" class="img-thumbnail",>
         </div>
         </br>
           <h1 style="text-align: center"> Our food </h1>
@@ -116,8 +116,8 @@
             <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
             <div class="line"></div>
           </br>
-          <div class="image">
-            <img src="mission.png" alt="community" style="width:800px;height:400px;" class="shadow p-3 mb-5 bg-white rounded"class="img-thumbnail">
+          <div class="images">
+            <img src="images/mission.png" alt="community" style="width:800px;height:400px;" class="shadow p-3 mb-5 bg-white rounded"class="img-thumbnail">
           </div>
           </br>
             <h1 style="text-align: center"> Socials </h1>
@@ -133,12 +133,13 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js" integrity="sha384-uefMccjFJAIv6A+rW+L4AHf99KvxDjWSu1z9VI8SKNVmz4sk7buKt/6v9KI65qnm" crossorigin="anonymous"></script>
     <!-- jQuery Custom Scroller CDN -->
         <script src="https://cdnjs.cloudflare.com/ajax/libs/malihu-custom-scrollbar-plugin/3.1.5/jquery.mCustomScrollbar.concat.min.js"></script>
-    <script type="text/javascript">
-        $(document).ready(function () {
-            $('#sidebarCollapse').on('click', function () {
+        <script type="text/javascript">
+            $(document).ready(function () {
+                $('#sidebarCollapse').on('click', function () {
+                    $('#sidebar').toggleClass('active');
+                });
             });
-        });
-    </script>
+        </script>
 
-<!--- all images from https://unsplash.com/ --->
+<!--- all imagess from https://unsplash.com/ --->
 </html>

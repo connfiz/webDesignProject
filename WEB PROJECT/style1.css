@@ -185,7 +185,7 @@ body {
   .shopfront{
     text-align: center;
      }
-     .image{
+     .images{
        text-align: center;
      }
       .pasta{
@@ -194,5 +194,5 @@ body {
       /*-----------------------------------------------------
       text miniplation
       -------------------------------------------------------*/
-      li{ 
+      li{
       color:#000000;}
