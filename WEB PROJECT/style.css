@@ -45,6 +45,7 @@ a:focus {
 }
 
 /* ---------------------------------------------------
+</script><!--- code from https://bootstrapious.com/p/bootstrap-sidebar --->
     SIDEBAR
 ----------------------------------------------------- */
 
@@ -141,6 +142,7 @@ a.article:hover {
 }
 
 /* ---------------------------------------------------
+</script><!--- code from https://bootstrapious.com/p/bootstrap-sidebar --->
     CONTENT
 ----------------------------------------------------- */
 
@@ -152,7 +154,8 @@ a.article:hover {
 }
 
 /* ---------------------------------------------------
-    @MEDIA
+</script><!--- code from https://bootstrapious.com/p/bootstrap-sidebar --->
+    @MEDIA 
 ----------------------------------------------------- */
 
 @media (max-width: 768px) {

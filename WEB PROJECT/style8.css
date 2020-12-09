@@ -1,6 +1,5 @@
-
-
 @import "https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700";
+/*  code from https://bootstrapious.com/p/bootstrap-sidebar this is to miniplat text in the whole page */
 body {
     font-family: 'Poppins', sans-serif;
     background: #fafafa;
@@ -45,7 +44,7 @@ a:focus {
 }
 
 /* ---------------------------------------------------
-    SIDEBAR <!--- code from https://bootstrapious.com/p/bootstrap-sidebar --->
+    SIDEBAR <!--- code from https://bootstrapious.com/p/bootstrap-sidebar this is to miniplat text in the side bar and background colors and make the dropdown menu work  --->
 ----------------------------------------------------- */
 
 .wrapper {
@@ -141,7 +140,7 @@ a.article:hover {
 }
 
 /* ---------------------------------------------------
-    CONTENT <!--- code from https://bootstrapious.com/p/bootstrap-sidebar --->
+    CONTENT <!--- code from https://bootstrapious.com/p/bootstrap-sidebar this is for when the sideabr is collapsed to make the page look better --->
 ----------------------------------------------------- */
 
 #content {
@@ -152,7 +151,7 @@ a.article:hover {
 }
 
 /* ---------------------------------------------------
-    @MEDIA <!--- code from https://bootstrapious.com/p/bootstrap-sidebar --->
+    @MEDIA <!--- code from https://bootstrapious.com/p/bootstrap-sidebar this is to make the sidebar responcive --->
 ----------------------------------------------------- */
 
 @media (max-width: 768px) {
@@ -164,7 +163,8 @@ a.article:hover {
     }
     #sidebarCollapse span {
         display: none;
-    }  /*-----------------------------------------------------
+    }
+      /*-----------------------------------------------------
       background image
       -------------------------------------------------------*/
   }
