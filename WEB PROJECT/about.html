@@ -11,7 +11,7 @@
     <!-- Bootstrap CSS CDN --> <!--- code from https://bootstrapious.com/p/bootstrap-sidebar --->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
     <!-- Our Custom CSS --> <!--- code from https://bootstrapious.com/p/bootstrap-sidebar --->
-    <link rel="stylesheet" href="style4.css">
+    <link rel="stylesheet" href="style1.css">
 
 
 </head>
@@ -95,13 +95,13 @@
             <h2>about us </h2>
             <div class="row">
         			<div class="col-md-6">
-                <img src="images/shopfront.png" alt="pasta" style="width:800px;height:400px;"class="shadow p-3 mb-5 bg-white rounded" class="img-thumbnail" ,>
+                <img class="myImages" id="myImg" src="images/shopfront.png" alt="pasta" style="width:800px;height:400px;"class="shadow p-3 mb-5 bg-white rounded" class="img-thumbnail" ,>
                 <h1 style="text-align: center"> Our home </h1>
         			<p> Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
         		</div>
         		<div class="col-md-6">
 
-              <img src="images/galway.jpg" alt="pasta" style="width:800px;height:400px;"class="shadow p-3 mb-5 bg-white rounded" class="img-thumbnail" ,>
+              <img class="myImages" id="myImg"src="images/galway.jpg" alt="pasta" style="width:800px;height:400px;"class="shadow p-3 mb-5 bg-white rounded" class="img-thumbnail" ,>
               <h1 style="text-align: center"> EST.2020  </h1>
         			<p> Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
         		</div>
@@ -111,20 +111,27 @@
 
             <div class="row">
         			<div class="col-md-6">
-                <img src="images/pasta.png" alt="pasta" style="width:800px;height:400px;"class="shadow p-3 mb-5 bg-white rounded" class="img-thumbnail" ,>
+                <img class="myImages" id="myImg"src="images/pasta.png" alt="pasta" style="width:800px;height:400px;"class="shadow p-3 mb-5 bg-white rounded" class="img-thumbnail" ,>
                 <h1 style="text-align: center"> Only fresh food for us </h1>
         			<p> Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
         		</div>
         		<div class="col-md-6">
 
-              <img src="images/crab.png" alt="pasta" style="width:800px;height:400px;"class="shadow p-3 mb-5 bg-white rounded"  class="img-thumbnail",>
+              <img class="myImages" id="myImg" src="images/crab.png" alt="pasta" style="width:800px;height:400px;"class="shadow p-3 mb-5 bg-white rounded"  class="img-thumbnail",>
               <h1 style="text-align: center"> Our reviews</h1>
         			<p> Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
         		</div>
 
 
     </div>
-    	<p>&copy; group p </p>
+    <div id="myModal" class="modal">
+      <span class="close">&times;</span>
+      <img class="modal-content" id="img01">
+      <div id="caption"></div>
+    </div>
+    <footer class="container text-center">
+      <p>&copy; group p </p>
+    </footer>
 
     <!-- jQuery CDN - Slim version (=without AJAX) --> <!--- code from https://bootstrapious.com/p/bootstrap-sidebar --->
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
@@ -139,7 +146,33 @@
                 $('#sidebar').toggleClass('active');
             });
         });
-    </script><!--- code from https://bootstrapious.com/p/bootstrap-sidebar ---> <!--- all imagess from https://unsplash.com/ this is the javascript to be able to toggole the side bar --->
-</body>
+        // create references to the modal...<!--- https://stackoverflow.com/questions/47798971/several-modal-images-on-page --->
+        var modal = document.getElementById('myModal');
+        // to all images -- note I'm using a class!
+        var images = document.getElementsByClassName('myImages');
+        // the image in the modal
+        var modalImg = document.getElementById("img01");
+        // and the caption in the modal
+        var captionText = document.getElementById("caption");
+
+        // Go through all of the images with our custom class
+        for (var i = 0; i < images.length; i++) {
+        var img = images[i];
+        // and attach our click listener for this image.
+        img.onclick = function(evt) {
+        console.log(evt);
+        modal.style.display = "block";
+        modalImg.src = this.src;
+        captionText.innerHTML = this.alt;
+        }
+        }
+
+        var span = document.getElementsByClassName("close")[0];
+
+        span.onclick = function() {
+        modal.style.display = "none";
+        }
+      </script><!--- code from https://bootstrapious.com/p/bootstrap-sidebar ---> <!--- all imagess from https://unsplash.com/ this is the javascript to be able to toggole the side bar --->
+    </body>
 
 </html>

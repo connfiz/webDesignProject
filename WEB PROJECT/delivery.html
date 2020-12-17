@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!DOCTYPE html><!--- this page is done by glen williams --->
 <html>
 
 <head>
@@ -11,7 +11,7 @@
     <!-- Bootstrap CSS CDN --> <!--- code from https://bootstrapious.com/p/bootstrap-sidebar --->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
     <!-- Our Custom CSS --> <!--- code from https://bootstrapious.com/p/bootstrap-sidebar --->
-    <link rel="stylesheet" href="style.3.css">
+    <link rel="stylesheet" href="style1.css">
 
 
 </head>
@@ -94,13 +94,13 @@
 
               <h2>Delivery</h2>
 			  <div class="images">
-          <img src="images/deliver.png" alt="deliver" style="width:800px;height:400px;"class="shadow p-3 mb-5 bg-white rounded" class="img-thumbnail",>
+          <img class="myImages" id="myImg" src="images/deliver.png" alt="deliver" style="width:800px;height:400px;"class="shadow p-3 mb-5 bg-white rounded" class="img-thumbnail",>
         </div>
 		<h2>Coastal taste delivery</h2>
             <p>Here at coastal tastes due to the Covid 19 Pandemic we are now offering a delivery service where you can order from our menu. Please enter your delivery details below to confirm and place your order. We will deliver to your door as soon as possible.</p>
-            
+
 				<div class="line"></div>
-			
+
 			<h1>Enter your details below</h1>
 				<label> Name: </label>
 					<input name="Name" type="text" size= "30" maxlength="25"/>
@@ -145,14 +145,17 @@
 						<br />
 						</br />
 					<input type= "submit" Value = "PLACE ORDER!"
-					
-					
-					
-					
-					
+          </div>
+          <footer class="container text-center">
+            <p>&copy; group p </p>
+          </footer>
+          <div id="myModal" class="modal">
+          <span class="close">&times;</span>
+          <img class="modal-content" id="img01">
+          <div id="caption"></div>
+        </div>
+        </div>
 
-
-      </div>
     <!-- jQuery CDN - Slim version (=without AJAX) --> <!--- code from https://bootstrapious.com/p/bootstrap-sidebar --->
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <!-- Popper.JS --> <!--- code from https://bootstrapious.com/p/bootstrap-sidebar --->
@@ -168,6 +171,32 @@
                 $('#sidebar').toggleClass('active');
             });
         });
+        // create references to the modal...<!--- https://stackoverflow.com/questions/47798971/several-modal-images-on-page --->
+        var modal = document.getElementById('myModal');
+        // to all images -- note I'm using a class!
+        var images = document.getElementsByClassName('myImages');
+        // the image in the modal
+        var modalImg = document.getElementById("img01");
+        // and the caption in the modal
+        var captionText = document.getElementById("caption");
+
+        // Go through all of the images with our custom class
+        for (var i = 0; i < images.length; i++) {
+        var img = images[i];
+        // and attach our click listener for this image.
+        img.onclick = function(evt) {
+        console.log(evt);
+        modal.style.display = "block";
+        modalImg.src = this.src;
+        captionText.innerHTML = this.alt;
+        }
+        }
+
+        var span = document.getElementsByClassName("close")[0];
+
+        span.onclick = function() {
+        modal.style.display = "none";
+        }
     </script>
 </body>
 
