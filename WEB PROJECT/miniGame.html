@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!DOCTYPE html><!--- this page is done by glen williams --->
 <html>
 
 <head>
@@ -34,7 +34,7 @@
                     <a href="#homeSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Home</a>
                     <ul class="collapse list-unstyled" id="homeSubmenu">
                       <li>
-                          <a href="home.html">Home</a>
+                          <a href="index.html">Home</a>
                       </li>
                       <li>
                           <a href="MENU.html">menu</a>
@@ -92,28 +92,168 @@
                 </div>
             </nav>
             <div class="bg"></div>
+            <h2>The 5 Questions mini game</h2>
+            	<div class="images">
+                      <img class="myImages" id="myImg" src="images/questionspic.png" alt="questionspic" style="width:800px;height:400px;"class="shadow p-3 mb-5 bg-white rounded" class="img-thumbnail" >
+            		</div>
+                        <h2 id="minigame">Enter 5 True or False questions below to be recive free meals and discounts</h2>
+            				<h5> <b>5 questions right = Free main course meal</b></h5>
+            				<h5> <b>4 Questions right = 40% discount on next meal</b></h5>
+            				<h5> <b>3 questions right = 15% discount on next meal</b></h5>
+            				<h5> <b>Less than 3 questions right you fail and get nothing!</b></h5>
+            				<h6> <b>Please screenshot your results and send to our contact email coastaltaste@gmail.com</b></h6>
+            				<div class="line"></div>
+            					<div id="quiz"></div>
+            <button id="submit">Get Results</button>
+            	<div id="results"></div>
+            		<link rel="stylesheet" href="styles9.css">
+            	<!-- Minigame page done by Glen -->
+            	<!-- Code found found here. "https://simplestepscode.com/javascript-quiz-tutorial/" changed and Manipulated by Glen -->
+            	<a href="https://simplestepscode.com/javascript-quiz-tutorial/" target="_blank"></a>
+            				<script type="text/javascript">
 
-            <h2>mini game</h2>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+            			var myQuestions = [
 
-            <div class="line"></div>
+              {
+                question: "Coastal taste is located in the counties Dublin and Galway",
+            	answers: {
+                  a: 'True',
+                  b: 'False',
+                },
+                correctAnswer: 'a'
+              },
+              {
+                question: "The coastal taste logo is a unicorn",
+                answers: {
+                  a: 'True',
+                  b: 'False',
+                },
+                correctAnswer: 'b'
+              },
+              {
+                question: "The coastal taste was founded in 1966",
+                answers: {
+                  a: 'True',
+                  b: 'False',
+                },
+                correctAnswer: 'a'
+              },
+              {
+                question: "WW2 ended in 1944",
+                answers: {
+                  a: 'True',
+                  b: 'False',
+                },
+                correctAnswer: 'b'
+              },
+              {
+                question: "Spongebob owns a pet snail",
+                answers: {
+                  a: 'True',
+                  b: 'False',
+                },
+                correctAnswer: 'a'
+              },
 
-            <h2>Lorem Ipsum Dolor</h2>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+            ];
 
-            <div class="line"></div>
+            var quizContainer = document.getElementById('quiz');
+            var resultsContainer = document.getElementById('results');
+            var submitButton = document.getElementById('submit');
 
-            <h2>Lorem Ipsum Dolor</h2>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+            generateQuiz(myQuestions, quizContainer, resultsContainer, submitButton);
 
-            <div class="line"></div>
+            function generateQuiz(questions, quizContainer, resultsContainer, submitButton){
 
-            <h3>Lorem Ipsum Dolor</h3>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-        </div>
+              function showQuestions(questions, quizContainer){
+                // we'll need a place to store the output and the answer choices
+                var output = [];
+                var answers;
 
-    </div>
+                // for each question...
+                for(var i=0; i<questions.length; i++){
+
+                  // first reset the list of answers
+                  answers = [];
+
+                  // for each available answer...
+                  for(letter in questions[i].answers){
+
+                    // ...add an html radio button
+                    answers.push(
+                      '<label>'
+                        + '<input type="radio" name="question'+i+'" value="'+letter+'">'
+                        + letter + ': '
+                        + questions[i].answers[letter]
+                      + '</label>'
+                    );
+                  }
+
+                  // add this question and its answers to the output
+                  output.push(
+                    '<div class="question">' + questions[i].question + '</div>'
+                    + '<div class="answers">' + answers.join('') + '</div>'
+                  );
+                }
+
+                // finally combine our output list into one string of html and put it on the page
+                quizContainer.innerHTML = output.join('');
+              }
+
+
+              function showResults(questions, quizContainer, resultsContainer){
+
+                // gather answer containers from our quiz
+                var answerContainers = quizContainer.querySelectorAll('.answers');
+
+                // keep track of user's answers
+                var userAnswer = '';
+                var numCorrect = 0;
+
+                // for each question...
+                for(var i=0; i<questions.length; i++){
+
+                  // find selected answer
+                  userAnswer = (answerContainers[i].querySelector('input[name=question'+i+']:checked')||{}).value;
+
+                  // if answer is correct
+                  if(userAnswer===questions[i].correctAnswer){
+                    // add to the number of correct answers
+                    numCorrect++;
+
+                    // color the answers green
+                    answerContainers[i].style.color = 'darkgreen';
+                  }
+                  // if answer is wrong or blank
+                  else{
+                    // color the answers red
+                    answerContainers[i].style.color = 'red';
+                  }
+                }
+
+                // show number of correct answers out of total
+                resultsContainer.innerHTML = numCorrect + ' out of ' + questions.length;
+              }
+
+              // show questions right away
+              showQuestions(questions, quizContainer);
+
+              // on submit, show results
+              submitButton.onclick = function(){
+                showResults(questions, quizContainer, resultsContainer);
+
+
+              }
+
+            }
+
+            	</script>
+
+
+
+
+                    </div>
+                </div>
     <footer class="container text-center">
       <p>&copy; group p </p>
     </footer>
@@ -132,7 +272,8 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js" integrity="sha384-uefMccjFJAIv6A+rW+L4AHf99KvxDjWSu1z9VI8SKNVmz4sk7buKt/6v9KI65qnm" crossorigin="anonymous"></script>
     <!-- jQuery Custom Scroller CDN --> <!--- code from https://bootstrapious.com/p/bootstrap-sidebar --->
         <script src="https://cdnjs.cloudflare.com/ajax/libs/malihu-custom-scrollbar-plugin/3.1.5/jquery.mCustomScrollbar.concat.min.js"></script>
-    <!--- code from https://bootstrapious.com/p/bootstrap-sidebar ---><script type="text/javascript">
+    <!--- code from https://bootstrapious.com/p/bootstrap-sidebar --->
+    <script type="text/javascript">
         $(document).ready(function () {
             $('#sidebarCollapse').on('click', function () {
                 $('#sidebar').toggleClass('active');
